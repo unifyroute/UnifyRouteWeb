@@ -11,8 +11,12 @@ class SearchManager {
   async init() {
     // Load search data
     try {
-      // Use relative path that works with subdirectories (GitHub Pages, etc.)
-      const response = await fetch(new URL('search-index.json', window.location.href).href);
+      // Get the base URL - it should be set by the template or default to root
+      const baseUrl = window.HUGO_BASE_URL || '';
+      const indexUrl = (baseUrl + 'search-index.json').replace(/\/+/g, '/');
+
+      const response = await fetch(indexUrl);
+      if (!response.ok) throw new Error('Failed to fetch search index');
       const data = await response.json();
       this.documents = data.documents;
 

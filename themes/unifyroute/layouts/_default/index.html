@@ -148,6 +148,14 @@
           <h3>Cost-Conscious Teams</h3>
           <p>Optimize LLM spending by routing to the most economical providers without application changes.</p>
         </div>
+        <div class="use-case">
+          <h3>OpenClaw Users</h3>
+          <p>Integrate seamlessly with OpenClaw for enhanced LLM routing and management capabilities.</p>
+        </div>
+        <div class="use-case">
+          <h3>Single Personal Endpoint</h3>
+          <p>Maintain a single unified endpoint for all your LLM requests across multiple providers and accounts.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -386,7 +394,16 @@
   }
 
   .use-case {
-    padding: 0;
+    padding: 30px;
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+  }
+
+  .use-case:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(242, 82, 33, 0.08);
   }
 
   .use-case h3 {

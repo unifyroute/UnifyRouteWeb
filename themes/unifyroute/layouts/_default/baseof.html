@@ -25,6 +25,9 @@
 
   <!-- Theme script (load early to prevent flash) -->
   <script type="text/javascript">
+    // Set Hugo base URL for JavaScript
+    window.HUGO_BASE_URL = '{{ .Site.BaseURL }}';
+
     // Prevent flash of wrong theme
     (function() {
       var theme = localStorage.getItem('unifyroute-theme');
@@ -51,11 +54,9 @@
   <!-- Lunr search library -->
   <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
 
-  {{ if .IsHome }}
-    {{ $searchScript := resources.Get "js/search.js" }}
-    {{ if $searchScript }}
-      <script src="{{ $searchScript.RelPermalink }}"></script>
-    {{ end }}
+  {{ $searchScript := resources.Get "js/search.js" }}
+  {{ if $searchScript }}
+    <script src="{{ $searchScript.RelPermalink }}"></script>
   {{ end }}
 </body>
 </html>
