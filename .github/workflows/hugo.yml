@@ -117,12 +117,13 @@ jobs:
                   print(f"Warning: Could not process {md_file}: {e}")
 
           output_data = {'documents': documents}
-          with open('public/search-index.json', 'w') as f:
+          with open('static/search-index.json', 'w') as f:
               json.dump(output_data, f, indent=2)
 
           print(f"Generated {len(documents)} search documents")
           EOF
-      - name: Upload artifact
+      - name: Build with Hugo
+        env:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
