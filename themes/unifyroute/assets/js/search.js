@@ -12,8 +12,17 @@ class SearchManager {
     // Load search data
     try {
       // Get the base URL - it should be set by the template or default to root
-      const baseUrl = window.HUGO_BASE_URL || '';
-      const indexUrl = (baseUrl + 'search-index.json').replace(/\/+/g, '/');
+      let baseUrl = window.HUGO_BASE_URL || '';
+
+      // Ensure baseUrl ends with a slash if it exists
+      if (baseUrl && !baseUrl.endsWith('/')) {
+        baseUrl += '/';
+      }
+
+      // Fix malformed URLs (e.g., http:/localhost becomes http://localhost)
+      baseUrl = baseUrl.replace(/([^:]\/)([^/])/g, '$1/$2');
+
+      const indexUrl = baseUrl + 'search-index.json';
 
       console.log('Base URL:', baseUrl);
       console.log('Search Index URL:', indexUrl);
