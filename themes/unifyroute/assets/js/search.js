@@ -11,7 +11,8 @@ class SearchManager {
   async init() {
     // Load search data
     try {
-      const response = await fetch('/search-index.json');
+      // Use relative path that works with subdirectories (GitHub Pages, etc.)
+      const response = await fetch(new URL('search-index.json', window.location.href).href);
       const data = await response.json();
       this.documents = data.documents;
 
