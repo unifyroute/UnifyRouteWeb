@@ -114,14 +114,25 @@ jobs:
 
           print(f"Generated {len(documents)} search documents")
           EOF
+      - name: Verify search index
+        run: |
+          echo "Checking if search-index.json exists in static..."
+          ls -lh static/search-index.json
+          echo "Search index file size: $(wc -c < static/search-index.json) bytes"
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
         run: |
           hugo \
-            --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+            --minify
+
+      - name: Verify search index in public
+        run: |
+          echo "Checking if search-index.json exists in public..."
+          ls -lh public/search-index.json || echo "ERROR: File not found in public directory!"
+          echo "Contents of public root:"
+          ls -la public/ | head -20
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

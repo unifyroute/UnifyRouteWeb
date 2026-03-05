@@ -15,8 +15,17 @@ class SearchManager {
       const baseUrl = window.HUGO_BASE_URL || '';
       const indexUrl = (baseUrl + 'search-index.json').replace(/\/+/g, '/');
 
+      console.log('Base URL:', baseUrl);
+      console.log('Search Index URL:', indexUrl);
+
       const response = await fetch(indexUrl);
-      if (!response.ok) throw new Error('Failed to fetch search index');
+      console.log('Fetch response status:', response.status);
+
+      if (!response.ok) {
+        const text = await response.text();
+        console.error('Response text:', text.substring(0, 200));
+        throw new Error(`Failed to fetch search index: ${response.status}`);
+      }
       const data = await response.json();
       this.documents = data.documents;
 
