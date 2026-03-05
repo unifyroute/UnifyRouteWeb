@@ -29,20 +29,48 @@ The GitHub Actions workflow will automatically:
 
 **If deploying to `unifyroute.com`:**
 
-1. Update DNS records at your domain registrar:
-   ```
-   A Record: 185.199.108.153
-   A Record: 185.199.109.153
-   A Record: 185.199.110.153
-   A Record: 185.199.111.153
-   ```
+Most DNS providers allow **multiple A records** for the same domain. Add all 4 GitHub Pages IPs:
 
-2. Add CNAME record (if using subdomain):
-   ```
-   CNAME: unifyroute.com points to unifyroute.github.io
-   ```
+**Add these 4 A Records:**
+```
+A Record: 185.199.108.153
+A Record: 185.199.109.153
+A Record: 185.199.110.153
+A Record: 185.199.111.153
+```
 
-3. GitHub Pages will auto-validate and enable HTTPS
+**How to Add Multiple A Records (by provider):**
+
+**GoDaddy:**
+1. Domain Settings > Manage DNS
+2. Click "Add" multiple times
+3. Type: A, Name: @, Value: [IP]
+4. Save
+
+**Namecheap:**
+1. Manage > Advanced DNS
+2. "Add New Record" (repeat 4x)
+3. Type: A, Host: @, Value: [IP]
+
+**Route53 (AWS):**
+1. Create A Record
+2. Name: unifyroute.com
+3. Click "Add another value"
+4. Enter all 4 IPs in same record
+
+**CloudFlare:**
+1. DNS tab > Add Record
+2. Type: A, Name: @
+3. Value: [IP]
+4. TTL: Auto
+5. Repeat for each IP
+
+**Alternative: Use CNAME (if you can't add multiple A records):**
+```
+CNAME: unifyroute.com points to unifyroute.github.io
+```
+
+GitHub Pages will auto-validate and enable HTTPS
 
 ### 4. Verify Deployment
 

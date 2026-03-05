@@ -1,12 +1,12 @@
-# UnifyRoute Website
+# 🚀 UnifyRoute Website
 
-This is the official website and documentation for [UnifyRoute](https://github.com/unifyroute/UnifyRoute), an open-source, self-hosted gateway for routing requests across multiple LLM providers.
+Official website and documentation for [UnifyRoute](https://github.com/unifyroute/UnifyRoute) - an open-source, self-hosted gateway for routing requests across multiple LLM providers.
 
-## Overview
+## 📋 Overview
 
 The website includes:
-- **Landing Page** - Homepage with features, quickstart, and use cases
-- **Documentation** - Comprehensive guides including:
+- 🏠 **Landing Page** - Homepage with features, quickstart, and use cases
+- 📖 **Documentation** - Comprehensive guides including:
   - Getting Started
   - Architecture & Design
   - API Reference
@@ -14,20 +14,20 @@ The website includes:
   - Configuration Guide
   - Deployment Instructions
   - Troubleshooting
-- **Features Page** - Detailed feature descriptions
-- **Dark/Light Mode** - Full theme support with system preference detection
-- **Full-Text Search** - Lunr.js powered search across all content
+- ✨ **Features Page** - Detailed feature descriptions
+- 🌓 **Dark/Light Mode** - Full theme support with system preference detection
+- 🔍 **Full-Text Search** - Lunr.js powered search across all content
 
-## Building the Website
+## 🛠️ Building the Website
 
-### Prerequisites
+### ⚙️ Prerequisites
 
 - Hugo 0.100+ (extended version recommended)
   - [Install Hugo](https://gohugo.io/installation/)
 - Python 3.7+ (for search index generation)
 - Node.js 14+ (optional, for CSS/JS preprocessing)
 
-### Local Development
+### 💻 Local Development
 
 1. **Clone the repository**
    ```bash
@@ -45,7 +45,7 @@ The website includes:
    - Open [http://localhost:1313](http://localhost:1313)
    - Changes are live-reloaded
 
-### Production Build
+### 📦 Production Build
 
 1. **Run build script**
    ```bash
@@ -62,7 +62,7 @@ The website includes:
    - Generated files are in the `public/` directory
    - Ready for deployment
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 .
@@ -90,9 +90,9 @@ The website includes:
 └── README.md              # This file
 ```
 
-## Customization
+## 🎨 Customization
 
-### Colors & Branding
+### 🎭 Colors & Branding
 
 Edit theme color variables in `themes/unifyroute/assets/css/style.css`:
 
@@ -104,7 +104,7 @@ Edit theme color variables in `themes/unifyroute/assets/css/style.css`:
 }
 ```
 
-### Navigation
+### 📍 Navigation
 
 Edit menu items in `config.toml`:
 
@@ -115,23 +115,23 @@ Edit menu items in `config.toml`:
   weight = 1
 ```
 
-### Logos
+### 🖼️ Logos
 
 Place logos in `static/images/`:
 - `logo.png` - Header logo
 - `favicon.png` - Favicon
 - `logo-space.png` - Homepage hero image
 
-### Content
+### 📝 Content
 
 Edit markdown files in `content/` directory. Hugo supports:
 - Markdown with front matter
 - YAML configuration
 - Custom shortcodes
 
-## Deployment
+## 🌐 Deployment
 
-### To Static Hosting (GitHub Pages, Netlify, Vercel)
+### ☁️ To Static Hosting (GitHub Pages, Netlify, Vercel)
 
 1. Build the site:
    ```bash
@@ -142,7 +142,7 @@ Edit markdown files in `content/` directory. Hugo supports:
 
 3. Configure DNS and HTTPS
 
-### To Custom Server
+### 🖥️ To Custom Server
 
 #### Using Nginx
 
@@ -182,14 +182,14 @@ server {
 </VirtualHost>
 ```
 
-### Enable HTTPS
+### 🔒 Enable HTTPS
 
 ```bash
 # Using Let's Encrypt with Certbot
 sudo certbot certonly --webroot -w /var/www/unifyroute -d unifyroute.example.com
 ```
 
-## Dark/Light Mode
+## 🌓 Dark/Light Mode
 
 The website automatically:
 1. Detects system preference (`prefers-color-scheme`)
@@ -198,7 +198,7 @@ The website automatically:
 
 JavaScript code in `themes/unifyroute/assets/js/theme.js` manages theme switching.
 
-## Search Functionality
+## 🔍 Search Functionality
 
 Search is powered by Lunr.js:
 - Searches across all page titles and content
@@ -208,7 +208,7 @@ Search is powered by Lunr.js:
 
 Search index is auto-generated in `public/search-index.json`
 
-## Performance Optimization
+## ⚡ Performance Optimization
 
 The site is optimized for speed:
 - Static HTML output (no server-side processing)
@@ -223,7 +223,7 @@ Lighthouse scores:
 - Best Practices: 95+
 - SEO: 100
 
-## Analytics (Optional)
+## 📊 Analytics (Optional)
 
 To add analytics:
 
@@ -235,7 +235,7 @@ To add analytics:
 
 2. Analytics code will be automatically included in production builds
 
-## Troubleshooting
+## 🐛 Troubleshooting
 
 ### Hugo not found
 ```bash
@@ -265,7 +265,7 @@ rm -rf themes/unifyroute
 git clone <theme-repo> themes/unifyroute
 ```
 
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please:
 
@@ -275,19 +275,20 @@ Contributions are welcome! Please:
 4. Test locally
 5. Submit a pull request
 
-## License
+## 📄 License
 
 This website is part of the UnifyRoute project and is licensed under the Apache License 2.0.
 
 See [LICENSE](LICENSE) for details.
 
-## Support
+## 💬 Support
 
 - **Issues**: [GitHub Issues](https://github.com/unifyroute/UnifyRoute/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/unifyroute/UnifyRoute/discussions)
-- **Email**: support@unifyroute.io
+- **Discord**: [Join our Discord](https://discord.gg/jadJbBJJ)
+- **Twitter**: [@unifyroute](https://twitter.com/unifyroute)
 
-## More Information
+## 📚 More Information
 
 - **Main Project**: [UnifyRoute GitHub](https://github.com/unifyroute/UnifyRoute)
 - **Documentation**: Available on the website

@@ -26,14 +26,18 @@ Complete these steps to deploy your UnifyRoute website:
 
 ## ✅ DNS Configuration (if using custom domain)
 
-- [ ] Add A records pointing to GitHub Pages IPs:
-  - 185.199.108.153
-  - 185.199.109.153
-  - 185.199.110.153
-  - 185.199.111.153
-- [ ] Or add CNAME record if using subdomain
+**Most DNS providers allow multiple A records - just add them one by one:**
+
+- [ ] Add A Record: 185.199.108.153
+- [ ] Add A Record: 185.199.109.153
+- [ ] Add A Record: 185.199.110.153
+- [ ] Add A Record: 185.199.111.153
+
+**Or use CNAME if A records don't work:**
+- [ ] Add CNAME: unifyroute.com → unifyroute.github.io
+
+- [ ] All DNS records verified with `nslookup` or `dig`
 - [ ] Wait 24-48 hours for DNS propagation
-- [ ] Verify DNS with `nslookup unifyroute.com`
 
 ## ✅ HTTPS & SSL
 
