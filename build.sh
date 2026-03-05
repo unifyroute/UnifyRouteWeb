@@ -116,9 +116,11 @@ def generate_search_index():
 
 documents = generate_search_index()
 
-# Save search index
+# Save search index to static directory so Hugo includes it
+import os
+os.makedirs('static', exist_ok=True)
 output_data = {'documents': documents}
-with open('public/search-index.json', 'w') as f:
+with open('static/search-index.json', 'w', encoding='utf-8') as f:
     json.dump(output_data, f, indent=2)
 
 print(f"Generated {len(documents)} search documents")

@@ -1,0 +1,84 @@
+{
+  "documents": [
+    {
+      "id": "0",
+      "title": "Features",
+      "content": "## OpenAI-Compatible API UnifyRoute provides drop-in compatible endpoints with OpenAI's API. Use it with any existing SDKs, tools, or applications without modifications. ### Supported Endpoints - **POST /api/v1/chat/completions** - Chat completion requests - **POST /api/v1/completions** - Text completion requests - **GET /api/v1/models** - List available models ## Tier-Based Intelligent Routing Route requests intelligently across multiple providers with automatic failover and redundancy. - **Pri",
+      "excerpt": "## OpenAI-Compatible API UnifyRoute provides drop-in compatible endpoints with OpenAI's API. Use it with any existing SDKs, tools, or applications without modifications. ### Supported Endpoints - **PO...",
+      "section": "Pages",
+      "url": "/features/"
+    },
+    {
+      "id": "1",
+      "title": "_Index",
+      "content": "",
+      "excerpt": "",
+      "section": "Pages",
+      "url": "//"
+    },
+    {
+      "id": "2",
+      "title": "Api Reference",
+      "content": "## Overview UnifyRoute provides OpenAI-compatible API endpoints that work with any OpenAI SDK or tool without modifications. **Base URL**: `http://localhost:6565/api/v1` **Authentication**: Include your API token in the Authorization header: ```bash curl -H \"Authorization: Bearer YOUR_API_TOKEN\" \\ http://localhost:6565/api/v1/chat/completions ``` ## Chat Completions Create a chat completion for a given prompt. **Endpoint**: `POST /api/v1/chat/completions` ### Request ```bash curl -X POST http://",
+      "excerpt": "## Overview UnifyRoute provides OpenAI-compatible API endpoints that work with any OpenAI SDK or tool without modifications. **Base URL**: `http://localhost:6565/api/v1` **Authentication**: Include yo...",
+      "section": "Documentation",
+      "url": "/docs/api-reference/"
+    },
+    {
+      "id": "3",
+      "title": "Architecture",
+      "content": "## System Overview UnifyRoute is built as a microservices-oriented architecture with the following components: ``` \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510 \u2502 Client Applications / SDKs \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518 \u2502 OpenAI-Compatible API \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u25bc\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510 \u2502 API Gateway (FastAPI) \u2502 \u2502 - Request validation \u2502 \u2502 - Authentication \u2502 \u2502 - Rate limiting \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518 \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u25bc\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510 \u2502 Router Component \u2502 \u2502 - Int",
+      "excerpt": "## System Overview UnifyRoute is built as a microservices-oriented architecture with the following components: ``` \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510 \u2502 Client Applications / SDKs \u2502 \u2514\u2500...",
+      "section": "Documentation",
+      "url": "/docs/architecture/"
+    },
+    {
+      "id": "4",
+      "title": "Cli",
+      "content": "## Overview UnifyRoute provides a comprehensive CLI for managing the gateway, providers, tokens, and configuration. **Usage**: `./unifyroute [COMMAND] [OPTIONS]` ## Global Options ```bash --help, -h Show help message --version, -v Show version information --config, -c PATH Path to config file (default: config.yaml) --debug Enable debug output ``` ## Setup & Services ### setup Initialize UnifyRoute with interactive configuration wizard. ```bash ./unifyroute setup [OPTIONS] ``` **Options**: - `--s",
+      "excerpt": "## Overview UnifyRoute provides a comprehensive CLI for managing the gateway, providers, tokens, and configuration. **Usage**: `./unifyroute [COMMAND] [OPTIONS]` ## Global Options ```bash --help, -h S...",
+      "section": "Documentation",
+      "url": "/docs/cli/"
+    },
+    {
+      "id": "5",
+      "title": "Configuration",
+      "content": "## Configuration Files UnifyRoute uses configuration files in YAML format. The main configuration file is typically `config.yaml`. ### Configuration Hierarchy 1. `.env` file - Environment variables 2. `config.yaml` - Main configuration 3. Environment variable overrides ## Environment Variables ### Core Settings ```env # Server SERVER_HOST=localhost SERVER_PORT=6565 SERVER_WORKERS=4 DEBUG=false # Security MASTER_PASSWORD=your-secure-password JWT_SECRET=your-jwt-secret-key JWT_ALGORITHM=HS256 JWT_",
+      "excerpt": "## Configuration Files UnifyRoute uses configuration files in YAML format. The main configuration file is typically `config.yaml`. ### Configuration Hierarchy 1. `.env` file - Environment variables 2....",
+      "section": "Documentation",
+      "url": "/docs/configuration/"
+    },
+    {
+      "id": "6",
+      "title": "Deployment",
+      "content": "## Docker Deployment ### Using Docker Compose Create `docker-compose.yml`: ```yaml version: '3.8' services: redis: image: redis:7-alpine ports: - \"6379:6379\" volumes: - redis_data:/data healthcheck: test: [\"CMD\", \"redis-cli\", \"ping\"] interval: 5s timeout: 3s retries: 5 unifyroute: build: . ports: - \"6565:6565\" environment: - SERVER_HOST=0.0.0.0 - SERVER_PORT=6565 - REDIS_URL=redis://redis:6379 - DATABASE_URL=sqlite:///./unifyroute.db - JWT_SECRET=${JWT_SECRET} - MASTER_PASSWORD=${MASTER_PASSWORD",
+      "excerpt": "## Docker Deployment ### Using Docker Compose Create `docker-compose.yml`: ```yaml version: '3.8' services: redis: image: redis:7-alpine ports: - \"6379:6379\" volumes: - redis_data:/data healthcheck: t...",
+      "section": "Documentation",
+      "url": "/docs/deployment/"
+    },
+    {
+      "id": "7",
+      "title": "Getting Started",
+      "content": "## Prerequisites Before installing UnifyRoute, ensure you have: - **Python 3.11+** - Core language requirement - **Node.js 18+** - Required for the frontend dashboard - **npm** - Node package manager - **Redis** - For session and queue management (optional for development) - **uv** - Fast Python package installer ## Installation ### 1. Clone the Repository ```bash git clone https://github.com/unifyroute/UnifyRoute.git cd UnifyRoute ``` ### 2. Configure Environment Copy the sample environment fil",
+      "excerpt": "## Prerequisites Before installing UnifyRoute, ensure you have: - **Python 3.11+** - Core language requirement - **Node.js 18+** - Required for the frontend dashboard - **npm** - Node package manager ...",
+      "section": "Documentation",
+      "url": "/docs/getting-started/"
+    },
+    {
+      "id": "8",
+      "title": "Troubleshooting",
+      "content": "## Common Issues & Solutions ### Installation & Setup #### Python Version Error **Error**: `Python 3.11+ required` **Solution**: ```bash # Check Python version python --version python3.11 --version # On Ubuntu/Debian sudo apt-get install python3.11 python3.11-venv # On macOS with Homebrew brew install python@3.11 # Set alias if needed alias python=python3.11 # Or use virtual environment python3.11 -m venv venv source venv/bin/activate ``` #### Redis Connection Error **Error**: `Cannot connect to",
+      "excerpt": "## Common Issues & Solutions ### Installation & Setup #### Python Version Error **Error**: `Python 3.11+ required` **Solution**: ```bash # Check Python version python --version python3.11 --version # ...",
+      "section": "Documentation",
+      "url": "/docs/troubleshooting/"
+    },
+    {
+      "id": "9",
+      "title": "_Index",
+      "content": "Welcome to the UnifyRoute documentation! Here you'll find everything you need to understand, install, configure, and use UnifyRoute. ## Quick Navigation - **Getting Started** - Installation and basic setup - **Architecture** - System design and components - **Configuration** - Detailed configuration options - **CLI Reference** - Command-line interface documentation - **API Reference** - OpenAI-compatible API endpoints - **Deployment** - Production deployment guides - **Troubleshooting** - Common",
+      "excerpt": "Welcome to the UnifyRoute documentation! Here you'll find everything you need to understand, install, configure, and use UnifyRoute. ## Quick Navigation - **Getting Started** - Installation and basic ...",
+      "section": "Documentation",
+      "url": "/docs//"
+    }
+  ]
+}
