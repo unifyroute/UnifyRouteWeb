@@ -1,0 +1,124 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>UnifyRoute</h3>
+        <p>Self-hosted OpenAI-compatible gateway for routing requests across multiple LLM providers</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/docs/">Documentation</a></li>
+          <li><a href="/features/">Features</a></li>
+          <li><a href="/docs/getting-started/">Getting Started</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="{{ .Site.Params.github }}" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="{{ .Site.Params.discord }}" target="_blank" rel="noopener noreferrer">Discord</a></li>
+          <li><a href="{{ .Site.Params.twitter }}" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+          <li><a href="{{ .Site.Params.reddit }}" target="_blank" rel="noopener noreferrer">Reddit</a></li>
+          <li><a href="{{ .Site.Params.devto }}" target="_blank" rel="noopener noreferrer">Dev.to</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="https://github.com/unifyroute/UnifyRoute/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">License (Apache 2.0)</a></li>
+          <li><a href="https://github.com/unifyroute/UnifyRoute/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Contributing</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {{ now.Year }} UnifyRoute Contributors. All rights reserved.</p>
+      <p>Licensed under Apache License 2.0</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    margin-top: 80px;
+    padding: 60px 0 30px;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 50px;
+    margin-bottom: 40px;
+  }
+
+  .footer-section h3,
+  .footer-section h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-section h3 {
+    font-size: 1.1rem;
+    text-transform: none;
+  }
+
+  .footer-section p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-section li {
+    margin: 10px 0;
+  }
+
+  .footer-section a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition);
+  }
+
+  .footer-section a:hover {
+    color: var(--accent-color);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--border-color);
+    padding-top: 30px;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 5px 0;
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      margin-top: 50px;
+      padding: 40px 0 20px;
+    }
+
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+</style>

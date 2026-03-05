@@ -1,0 +1,42 @@
+# Hugo
+public/
+resources/
+
+# Build artifacts
+*.o
+*.a
+*.so
+*.dylib
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment
+.env
+.env.local
+*.pem
+*.key
+
+# Logs
+logs/
+*.log
+
+# Dependencies
+node_modules/
+venv/
+__pycache__/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# OS
+Thumbs.db
+.AppleDouble
+.LSOverride

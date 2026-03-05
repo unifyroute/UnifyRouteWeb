@@ -1,0 +1,499 @@
+{{ define "main" }}
+<div class="homepage">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Smart LLM Routing at Scale</h1>
+          <p class="hero-subtitle">
+            Self-hosted gateway for intelligent routing across multiple LLM providers.
+            Works seamlessly with <strong>OpenClaw</strong> and any other product.
+            Reduce costs, improve reliability, and maintain complete control of your infrastructure.
+          </p>
+          <p class="hero-tagline">Any provider. All accounts. One route.</p>
+          <div class="hero-buttons">
+            <a href="/docs/getting-started/" class="btn btn-primary">Get Started</a>
+            <a href="{{ .Site.Params.github }}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+              View on GitHub
+            </a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="/images/logo-space.png" alt="UnifyRoute">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Benefits -->
+  <section class="benefits">
+    <div class="container">
+      <h2 class="section-title">Why UnifyRoute?</h2>
+      <div class="benefits-grid">
+        <div class="benefit">
+          <h3>Multi-Provider Routing</h3>
+          <p>Distribute requests intelligently across multiple LLM providers with automatic failover and redundancy built-in.</p>
+        </div>
+        <div class="benefit">
+          <h3>Multi-Account Provisioning</h3>
+          <p>Manage and provision multiple accounts across different providers seamlessly from a single unified interface.</p>
+        </div>
+        <div class="benefit">
+          <h3>Cost Optimization</h3>
+          <p>Monitor spending and route to the most cost-effective provider without changing your application code.</p>
+        </div>
+        <div class="benefit">
+          <h3>Dynamic Routing</h3>
+          <p>Automatically adjust routing rules based on real-time metrics, provider availability, and performance data.</p>
+        </div>
+        <div class="benefit">
+          <h3>Complete Control</h3>
+          <p>Self-host your gateway and maintain full visibility over all LLM requests and provider integrations.</p>
+        </div>
+        <div class="benefit">
+          <h3>OpenAI Compatible</h3>
+          <p>Drop-in replacement for the OpenAI API. Works with any existing SDK or tool without modifications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Core Features</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <h3>Tier-Based Routing</h3>
+          <p>Intelligent request routing with primary and fallback providers, ensuring high availability.</p>
+        </div>
+        <div class="feature">
+          <h3>Credential Management</h3>
+          <p>Secure, encrypted credential storage with intuitive dashboard for managing provider configurations.</p>
+        </div>
+        <div class="feature">
+          <h3>Cost & Usage Tracking</h3>
+          <p>Real-time monitoring of costs, usage patterns, and operational metrics across all providers.</p>
+        </div>
+        <div class="feature">
+          <h3>Quota Management</h3>
+          <p>Built-in quota awareness and automatic synchronization with provider limits and rate limits.</p>
+        </div>
+        <div class="feature">
+          <h3>CLI Tools</h3>
+          <p>Comprehensive command-line interface for deployment, configuration, and day-to-day management.</p>
+        </div>
+        <div class="feature">
+          <h3>Production Ready</h3>
+          <p>Built with FastAPI, Redis, SQLite, comprehensive logging, and health checks for production use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Getting Started Section -->
+  <section class="getting-started">
+    <div class="container">
+      <h2 class="section-title">Get Started in Minutes</h2>
+      <div class="getting-started-content">
+        <div class="code-example">
+          <pre><code class="language-bash">cp sample.env .env
+./unifyroute setup
+./unifyroute start</code></pre>
+        </div>
+        <div class="steps-list">
+          <div class="step-item">
+            <h4>1. Install & Configure</h4>
+            <p>Clone the repository and run the interactive setup wizard.</p>
+          </div>
+          <div class="step-item">
+            <h4>2. Add Providers</h4>
+            <p>Configure your LLM providers (OpenAI, Anthropic, Together, etc.)</p>
+          </div>
+          <div class="step-item">
+            <h4>3. Start Gateway</h4>
+            <p>Launch UnifyRoute and access the dashboard at localhost:6565</p>
+          </div>
+          <div class="step-item">
+            <h4>4. Begin Routing</h4>
+            <p>Use OpenAI-compatible endpoints for your LLM requests.</p>
+          </div>
+        </div>
+      </div>
+      <div class="cta-center">
+        <a href="/docs/getting-started/" class="btn btn-primary btn-large">Read Full Guide</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="use-cases">
+    <div class="container">
+      <h2 class="section-title">Perfect For</h2>
+      <div class="use-cases-grid">
+        <div class="use-case">
+          <h3>Enterprise Teams</h3>
+          <p>Manage multiple provider accounts, monitor spending, and enforce security policies across your organization.</p>
+        </div>
+        <div class="use-case">
+          <h3>SaaS Platforms</h3>
+          <p>Provide reliable LLM access to customers with per-user cost tracking and quota management.</p>
+        </div>
+        <div class="use-case">
+          <h3>Researchers</h3>
+          <p>Experiment with multiple models and providers simultaneously with unified API and comprehensive logging.</p>
+        </div>
+        <div class="use-case">
+          <h3>Cost-Conscious Teams</h3>
+          <p>Optimize LLM spending by routing to the most economical providers without application changes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <h2>Ready to Simplify Your LLM Infrastructure?</h2>
+      <p>Join developers building with UnifyRoute</p>
+      <div class="final-buttons">
+        <a href="/docs/getting-started/" class="btn btn-primary btn-lg">Get Started</a>
+        <a href="{{ .Site.Params.github }}" class="btn btn-secondary btn-lg" target="_blank" rel="noopener noreferrer">
+          View Source
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  /* Hero */
+  .hero {
+    padding: 0 0 60px;
+    border-bottom: 1px solid var(--border-color);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+  }
+
+  html.dark-mode .hero h1 {
+    color: #e0e0e0;
+  }
+
+  .hero-tagline {
+    font-size: 1.4rem;
+    font-weight: 800;
+    font-style: italic;
+    color: var(--accent-color);
+    margin-top: 20px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+  }
+
+  .hero-subtitle strong {
+    color: var(--accent-color);
+    font-weight: 700;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 15px;
+  }
+
+  .hero-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-image img {
+    max-width: 60%;
+    height: auto;
+  }
+
+  /* Section Styling */
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--text-primary);
+  }
+
+  /* Benefits */
+  .benefits {
+    padding: 80px 0;
+    background-color: var(--bg-secondary);
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+  }
+
+  .benefit {
+    padding: 30px;
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+  }
+
+  .benefit:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(242, 82, 33, 0.08);
+  }
+
+  .benefit h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+  }
+
+  .benefit p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Features */
+  .features {
+    padding: 80px 0;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+  }
+
+  .feature {
+    padding: 30px;
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+  }
+
+  .feature:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(242, 82, 33, 0.08);
+  }
+
+  .feature h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+  }
+
+  .feature p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Getting Started */
+  .getting-started {
+    padding: 80px 0;
+    background-color: var(--bg-secondary);
+  }
+
+  .getting-started-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 40px;
+    align-items: start;
+  }
+
+  .code-example {
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+    overflow-x: auto;
+  }
+
+  .code-example pre {
+    margin: 0;
+    border: none;
+    padding: 0;
+    background: transparent;
+  }
+
+  .code-example code {
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .step-item h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+  }
+
+  .step-item p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .cta-center {
+    text-align: center;
+  }
+
+  /* Use Cases */
+  .use-cases {
+    padding: 80px 0;
+  }
+
+  .use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+  }
+
+  .use-case {
+    padding: 0;
+  }
+
+  .use-case h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+  }
+
+  .use-case p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Final CTA */
+  .final-cta {
+    padding: 60px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .final-cta h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+  }
+
+  .final-cta p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+  }
+
+  .final-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-lg {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 0;
+    }
+
+    .hero {
+      padding: 60px 0 40px;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+
+    .benefits,
+    .features,
+    .getting-started,
+    .use-cases {
+      padding: 50px 0;
+    }
+
+    .getting-started-content {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .benefits-grid,
+    .features-grid,
+    .use-cases-grid {
+      gap: 25px;
+    }
+
+    .feature,
+    .benefit {
+      padding: 20px;
+    }
+
+    .final-cta h2 {
+      font-size: 1.6rem;
+    }
+
+    .final-buttons {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-lg {
+      width: 100%;
+    }
+  }
+</style>
+{{ end }}

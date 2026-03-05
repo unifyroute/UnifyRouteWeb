@@ -1,0 +1,58 @@
+baseURL = "https://unifyroute.com/"
+languageCode = "en-us"
+title = "UnifyRoute - LLM Gateway & Router"
+theme = "unifyroute"
+paginate = 10
+disableKinds = ["RSS", "taxonomy", "term"]
+
+# Output formats
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]
+  page = ["HTML"]
+
+# Markup settings
+[markup]
+  [markup.highlight]
+    style = "dracula"
+    lineNos = true
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+# Menu configuration
+[[menu.main]]
+  name = "Features"
+  url = "/features/"
+  weight = 1
+
+[[menu.main]]
+  name = "Getting Started"
+  url = "/docs/getting-started/"
+  weight = 2
+
+[[menu.main]]
+  name = "Docs"
+  url = "/docs/"
+  weight = 3
+
+[[menu.main]]
+  name = "GitHub"
+  url = "https://github.com/unifyroute/UnifyRoute"
+  weight = 4
+
+# Parameters
+[params]
+  description = "Self-hosted OpenAI-compatible gateway for routing requests across multiple LLM providers"
+  author = "UnifyRoute Contributors"
+
+  # Colors
+  primaryColor = "#4d4d4d"
+  accentColor = "#f25221"
+
+  # Social
+  github = "https://github.com/unifyroute/UnifyRoute"
+  twitter = "https://twitter.com/unifyroute"
+  discord = "https://discord.gg/jadJbBJJ"
+  reddit = "https://reddit.com/r/unifyroute"
+  devto = "https://dev.to/unifyroute"

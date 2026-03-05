@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ .Title }}{{ if eq .Title .Site.Title }} {{ else }} | {{ .Site.Title }} {{ end }}</title>
+  <meta name="description" content="{{ .Description | default .Site.Params.description }}">
+  <meta name="author" content="{{ .Site.Params.author }}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+  <!-- Styles -->
+  {{ $style := resources.Get "css/style.css" }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+  {{ $searchCSS := resources.Get "css/search.css" }}
+  <link rel="stylesheet" href="{{ $searchCSS.RelPermalink }}">
+
+  <!-- Syntax highlighting -->
+  {{ $highlight := resources.Get "css/highlight.css" }}
+  {{ if $highlight }}
+    <link rel="stylesheet" href="{{ $highlight.RelPermalink }}">
+  {{ end }}
+
+  <!-- Theme script (load early to prevent flash) -->
+  <script type="text/javascript">
+    // Prevent flash of wrong theme
+    (function() {
+      var theme = localStorage.getItem('unifyroute-theme');
+      if (theme) {
+        document.documentElement.classList.remove('light-mode', 'dark-mode');
+        document.documentElement.classList.add(theme);
+      }
+    })();
+  </script>
+</head>
+<body>
+  {{ partial "header.html" . }}
+
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  {{ partial "footer.html" . }}
+
+  <!-- Scripts -->
+  {{ $themeScript := resources.Get "js/theme.js" }}
+  <script src="{{ $themeScript.RelPermalink }}"></script>
+
+  <!-- Lunr search library -->
+  <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
+
+  {{ if .IsHome }}
+    {{ $searchScript := resources.Get "js/search.js" }}
+    {{ if $searchScript }}
+      <script src="{{ $searchScript.RelPermalink }}"></script>
+    {{ end }}
+  {{ end }}
+</body>
+</html>
