@@ -56,6 +56,72 @@ jobs:
           hugo \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Generate Search Index
+        run: |
+          python3 << 'EOF'
+          import os
+          import json
+          import re
+          from pathlib import Path
+
+          def extract_frontmatter(content):
+              if content.startswith('---'):
+                  parts = content.split('---', 2)
+                  if len(parts) >= 3:
+                      return parts[2].strip()
+              return content
+
+          def clean_text(text):
+              text = re.sub(r'<[^>]+>', '', text)
+              text = re.sub(r'\s+', ' ', text)
+              return text.strip()
+
+          documents = []
+          doc_id = 0
+          content_dir = Path('content')
+
+          for md_file in content_dir.rglob('*.md'):
+              try:
+                  with open(md_file, 'r', encoding='utf-8') as f:
+                      file_content = f.read()
+
+                  body = extract_frontmatter(file_content)
+                  parts = md_file.relative_to(content_dir).parts
+                  filename = md_file.stem
+
+                  section = 'Documentation' if len(parts) > 1 and parts[0] == 'docs' else 'Pages'
+                  title = filename.replace('-', ' ').title()
+
+                  clean_body = clean_text(body)
+                  excerpt = clean_body[:200] + ('...' if len(clean_body) > 200 else '')
+
+                  url_parts = list(parts[:-1]) + [filename.replace('_index', '')]
+                  url = '/' + '/'.join(url_parts) + ('/' if filename == '_index' else '/')
+
+                  documents.append({
+                      'id': str(doc_id),
+                      'title': title,
+                      'content': clean_body[:500],
+                      'excerpt': excerpt,
+                      'section': section,
+                      'url': url
+                  })
+                  doc_id += 1
+              except Exception as e:
+                  print(f"Warning: Could not process {md_file}: {e}")
+
+          output_data = {'documents': documents}
+          with open('public/search-index.json', 'w') as f:
+              json.dump(output_data, f, indent=2)
+
+          print(f"Generated {len(documents)} search documents")
+          EOF
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
