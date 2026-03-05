@@ -48,20 +48,10 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-      - name: Build with Hugo
-        env:
-          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
-          HUGO_ENVIRONMENT: production
-        run: |
-          hugo \
-            --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
-
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-
       - name: Generate Search Index
         run: |
           python3 << 'EOF'
@@ -116,6 +106,8 @@ jobs:
               except Exception as e:
                   print(f"Warning: Could not process {md_file}: {e}")
 
+          # Create static directory and write search index
+          Path('static').mkdir(exist_ok=True)
           output_data = {'documents': documents}
           with open('static/search-index.json', 'w') as f:
               json.dump(output_data, f, indent=2)
@@ -124,6 +116,14 @@ jobs:
           EOF
       - name: Build with Hugo
         env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_ENVIRONMENT: production
+        run: |
+          hugo \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
