@@ -76,6 +76,17 @@ jobs:
           doc_id = 0
           content_dir = Path('content')
 
+          # Add homepage content
+          documents.append({
+              'id': str(doc_id),
+              'title': 'Home',
+              'content': 'Self-hosted gateway for intelligent routing across multiple LLM providers with OpenClaw integration',
+              'excerpt': 'Smart LLM Routing at Scale',
+              'section': 'Pages',
+              'url': '/'
+          })
+          doc_id += 1
+
           for md_file in content_dir.rglob('*.md'):
               try:
                   with open(md_file, 'r', encoding='utf-8') as f:
@@ -85,24 +96,37 @@ jobs:
                   parts = md_file.relative_to(content_dir).parts
                   filename = md_file.stem
 
-                  section = 'Documentation' if len(parts) > 1 and parts[0] == 'docs' else 'Pages'
-                  title = filename.replace('-', ' ').title()
+                  # Assign section based on directory structure
+                  if len(parts) > 1 and parts[0] == 'docs':
+                      section = 'Documentation'
+                  else:
+                      section = 'Pages'
+
+                  # Generate proper title from filename
+                  title = filename.replace('-', ' ').replace('_index', '').title()
 
                   clean_body = clean_text(body)
                   excerpt = clean_body[:200] + ('...' if len(clean_body) > 200 else '')
 
-                  url_parts = list(parts[:-1]) + [filename.replace('_index', '')]
-                  url = '/' + '/'.join(url_parts) + ('/' if filename == '_index' else '/')
+                  # Generate proper URL
+                  if filename == '_index':
+                      if len(parts) == 1:
+                          url = '/'
+                      else:
+                          url = '/' + '/'.join(parts[:-1]) + '/'
+                  else:
+                      url = '/' + '/'.join(parts[:-1]) + '/' + filename + '/'
 
                   documents.append({
                       'id': str(doc_id),
                       'title': title,
-                      'content': clean_body[:500],
+                      'content': clean_body,
                       'excerpt': excerpt,
                       'section': section,
                       'url': url
                   })
                   doc_id += 1
+                  print(f"Indexed: {url} ({section}) - {title}")
               except Exception as e:
                   print(f"Warning: Could not process {md_file}: {e}")
 
@@ -112,7 +136,7 @@ jobs:
           with open('static/search-index.json', 'w') as f:
               json.dump(output_data, f, indent=2)
 
-          print(f"Generated {len(documents)} search documents")
+          print(f"\nGenerated {len(documents)} search documents total")
           EOF
       - name: Verify search index
         run: |

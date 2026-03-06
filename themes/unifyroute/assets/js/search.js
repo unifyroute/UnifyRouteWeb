@@ -81,8 +81,34 @@ class SearchManager {
       return;
     }
 
-    // Search with fuzzy matching
-    const results = this.index.search(`${query}*`);
+    // Try multiple search strategies
+    let results = [];
+
+    // Strategy 1: Fuzzy match with wildcard
+    results = this.index.search(`${query}*`);
+
+    // Strategy 2: If no results, try exact term
+    if (results.length === 0) {
+      results = this.index.search(query);
+    }
+
+    // Strategy 3: If still no results, search content manually
+    if (results.length === 0) {
+      const lowerQuery = query.toLowerCase();
+      const manualResults = this.documents
+        .filter(doc => {
+          const title = (doc.title || '').toLowerCase();
+          const content = (doc.content || '').toLowerCase();
+          const section = (doc.section || '').toLowerCase();
+          return title.includes(lowerQuery) || content.includes(lowerQuery) || section.includes(lowerQuery);
+        })
+        .map((doc) => ({
+          ref: doc.id,
+          score: (doc.content || '').toLowerCase().includes(query.toLowerCase()) ? 10 : 5
+        }));
+      results = manualResults;
+    }
+
     this.displayResults(results);
   }
 
